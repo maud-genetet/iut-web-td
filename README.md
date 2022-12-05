@@ -26,4 +26,18 @@ Vous pouvez naviger entre les différentes page grace aux liens en haut des page
 
 <h2 id='2'>2. TDs PHP</h2>
 
+Pour pouvoir lancer les page web des TD PHP rendz vous à la racine du projet, puis aller dans le repertoire ```TDs_PHP``` grace à la commande :
+
+```bash
+    cd TDs_PHP
+```
+
+Puis pour lancer le server faite la commande : 
+
+```bash
+    php -S 127.0.0.1:8080
+```
+
+Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8080/
+
 <h2 id='3'>2. TDs Symfony</h2>

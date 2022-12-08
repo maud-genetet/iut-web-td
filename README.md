@@ -26,7 +26,7 @@ Vous pouvez naviger entre les différentes page grace aux liens en haut des page
 
 <h2 id='2'>2. TDs PHP</h2>
 
-Pour pouvoir lancer les page web des TD PHP rendz vous à la racine du projet, puis aller dans le repertoire ```TDs_PHP``` grace à la commande :
+Pour pouvoir lancer les page web des TD PHP rendez vous à la racine du projet, puis aller dans le repertoire ```TDs_PHP``` grace à la commande :
 
 ```bash
     cd TDs_PHP
@@ -41,3 +41,27 @@ Puis pour lancer le server faite la commande :
 Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8080/
 
 <h2 id='3'>2. TDs Symfony</h2>
+
+Pour pouvoir lancer les page web des TD PHP rendez vous à la racine du projet, puis aller dans le repertoire ```TDs_PHP``` grace à la commande :
+
+```bash
+    cd TDs_PHP
+```
+
+### TD1 Symfony
+
+Pour lancer le TD1 de Symfony aller dans le dossier ```symfony``` avec la commande :
+
+```bash
+    cd symfony
+```
+
+Puis pour lancer le server faite la commande : 
+
+```bash
+    symfony server
+```
+
+Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8000/accueil
+
+Vous pourrez allez par la suite sur la page d'Alice et Bob en utilisant le menu.

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MaudController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('style/style.css') }}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/mnt/roost/users/mgenetet/Cours/IUT_S3/web/http/rendu/r3.01_remise_tds_maudgenetet/TDs_Symfony/symfony/src/Controller/MaudController.php'|file_link(0) }}">src/Controller/MaudController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/mnt/roost/users/mgenetet/Cours/IUT_S3/web/http/rendu/r3.01_remise_tds_maudgenetet/TDs_Symfony/symfony/templates/maud/index.html.twig'|file_link(0) }}">templates/maud/index.html.twig</a></code></li>
+    </ul>
+
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="{{path('appHello', {'name':'Alice'})}}">Page d'Alice</a></li>
+        <li><a href="{{path('appHello', {'name':'Bob'})}}">Page d'Bob</a></li>
+    </ul>
+</div>
+{% endblock %}

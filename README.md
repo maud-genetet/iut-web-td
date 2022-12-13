@@ -59,7 +59,7 @@ Pour lancer le TD1 de Symfony aller dans le dossier ```symfony``` avec la comman
 Puis pour lancer le server faite la commande : 
 
 ```bash
-    symfony server
+    symfony serve
 ```
 
 Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8000/accueil

@@ -65,10 +65,51 @@ class __TwigTemplate_6bc9a9867b96688b2dc37173756fa065 extends Template
         // line 15
         echo "    </head>
     <body>
-        ";
+        <a href=\"";
         // line 17
-        $this->displayBlock('body', $context, $blocks);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_maud");
+        echo "\">Accueil</a>
+        ";
         // line 18
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "user", [], "any", false, false, false, 18)) {
+            // line 19
+            echo "            <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Déconnexion</a>
+            <a href=\"";
+            // line 20
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_message_index");
+            echo "\">Message</a>
+            Utilisateur : [";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 21, $this->source); })()), "user", [], "any", false, false, false, 21), "email", [], "any", false, false, false, 21), "html", null, true);
+            echo "]
+            Name : [";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 22, $this->source); })()), "user", [], "any", false, false, false, 22), "name", [], "any", false, false, false, 22), "html", null, true);
+            echo "]
+            Country : [";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 23, $this->source); })()), "user", [], "any", false, false, false, 23), "country", [], "any", false, false, false, 23), "html", null, true);
+            echo "]
+        ";
+        } else {
+            // line 25
+            echo "            <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\">Inscription</a>
+            <a href=\"";
+            // line 26
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Connexion</a>
+        ";
+        }
+        // line 28
+        echo "        <hr/>
+        ";
+        // line 29
+        $this->displayBlock('body', $context, $blocks);
+        // line 32
         echo "    </body>
 </html>
 ";
@@ -145,7 +186,7 @@ class __TwigTemplate_6bc9a9867b96688b2dc37173756fa065 extends Template
 
     }
 
-    // line 17
+    // line 29
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -155,6 +196,9 @@ class __TwigTemplate_6bc9a9867b96688b2dc37173756fa065 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 30
+        echo "        
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -168,9 +212,14 @@ class __TwigTemplate_6bc9a9867b96688b2dc37173756fa065 extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  149 => 17,  136 => 13,  126 => 12,  113 => 9,  103 => 8,  84 => 5,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  200 => 30,  190 => 29,  177 => 13,  167 => 12,  154 => 9,  144 => 8,  125 => 5,  113 => 32,  111 => 29,  108 => 28,  103 => 26,  98 => 25,  93 => 23,  89 => 22,  85 => 21,  81 => 20,  76 => 19,  74 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -191,9 +240,23 @@ class __TwigTemplate_6bc9a9867b96688b2dc37173756fa065 extends Template
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <a href=\"{{ path('app_maud') }}\">Accueil</a>
+        {% if app.user %}
+            <a href=\"{{ path('app_logout') }}\">Déconnexion</a>
+            <a href=\"{{ path('app_message_index') }}\">Message</a>
+            Utilisateur : [{{ app.user.email }}]
+            Name : [{{ app.user.name }}]
+            Country : [{{ app.user.country }}]
+        {% else %}
+            <a href=\"{{ path('app_register') }}\">Inscription</a>
+            <a href=\"{{ path('app_login') }}\">Connexion</a>
+        {% endif %}
+        <hr/>
+        {% block body %}
+        
+        {% endblock %}
     </body>
 </html>
-", "base.html.twig", "/mnt/roost/users/mgenetet/Cours/IUT_S3/web/http/rendu/r3.01_remise_tds_maudgenetet/TDs_Symfony/symfony/templates/base.html.twig");
+", "base.html.twig", "/mnt/roost/users/mgenetet/Cours/IUT_S3/web/http/rendu/r3.01_remise_tds_maudgenetet/TD_Symfony/symfony/templates/base.html.twig");
     }
 }

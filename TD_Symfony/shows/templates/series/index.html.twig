@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Series index{% endblock %}
+
+{% block body %}
+    <style>
+        img {
+            height : 10vh;
+        }
+        tbody tr{
+            background-color: #d4d4d4;
+        }
+        tbody tr:hover{
+            background-color: #a3a3a3;
+        }
+        table {
+            border-spacing: 0px 3px;
+        }
+        a{
+            background-color : #c99393;
+            color: white;
+            padding : 5px;
+            border-radius : 5px;
+            display : flex;
+            margin : 5px;
+        }
+        a:hover {
+            background-color : black;
+        }
+    </style>
+    <h1>Series index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Plot</th>
+                <th>Imdb</th>
+                <th>Poster</th>
+                <th>Director</th>
+                <th>YoutubeTrailer</th>
+                <th>Awards</th>
+                <th>YearStart</th>
+                <th>YearEnd</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for series in series %}
+            <tr>
+                <td>{{ series.id }}</td>
+                <td><b>{{ series.title }}</b></td>
+                <td>{{ series.plot }}</td>
+                <td><a href="https://www.imdb.com/title/{{ series.imdb }}/">lien Imdb</a></td>
+                <td><img src="{{ path('app_poster', {'id': series.id}) }}"/></td>
+                <td>{{ series.director }}</td>
+                <td><a href='{{ series.youtubeTrailer }}'>lien bande annonce</a></td>
+                <td>{{ series.awards }}</td>
+                <td>{{ series.yearStart }}</td>
+                <td>{{ series.yearEnd }}</td>
+                <td>
+                    <a href="{{ path('app_series_show', {'id': series.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

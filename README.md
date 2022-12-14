@@ -48,12 +48,12 @@ Pour pouvoir lancer les page web des TD PHP rendez vous à la racine du projet, 
     cd TDs_PHP
 ```
 
-### TD1 Symfony
+### TD1 et TD2 Symfony
 
-Pour lancer le TD1 de Symfony aller dans le dossier ```symfony``` avec la commande :
+Pour lancer le TD1 et TD2 de Symfony aller dans le dossier ```symfony``` avec la commande :
 
 ```bash
-    cd symfony
+    cd TD_Symfony/symfony
 ```
 
 Puis pour lancer le server faite la commande : 
@@ -62,6 +62,24 @@ Puis pour lancer le server faite la commande :
     symfony serve
 ```
 
-Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8000/accueil
+Ensuite pour vous rendre sur le sommaire de toutes nos pages aller sur cette adresse : http://127.0.0.1:8000/
 
-Vous pourrez allez par la suite sur la page d'Alice et Bob en utilisant le menu.
+Vous pourrez allez par la suite sur les différentes pages en utilisant le menu.
+
+### TD3 Symfony
+
+Pour lancer le TD3 de Symfony aller dans le dossier ```show``` avec la commande :
+
+```bash
+    cd TD_Symfony/shows
+```
+
+Puis pour lancer le server faite la commande : 
+
+```bash
+    symfony serve
+```
+
+Ensuite pour vous rendre sur l'index de toutes les séries aller sur cette adresse : http://127.0.0.1:8000/
+
+Vous pourrez allez par la suite sur les pages des différentes séries en cliquant sur les bouttons ```show``` en utilisant le menu.

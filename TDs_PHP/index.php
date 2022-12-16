@@ -20,7 +20,7 @@
         <li><a href="/TD4.php">TD4 : Ajout Utilisateur</a></li>
         <li><a href="/TD5.php">TD5 : Cookies et session : Nombre Incrémenté</a></li>
         <li><a href="/TD5_Morpion.php">TD5 : Cookies et session : Morpion</a></li>
-        <li><a href="/TD5_connexion.php">TD5 : Cookies et session : Connexion</a></li>
+        <li><a href="/connection.php">TD5 : Cookies et session : Connexion</a></li>
     </ul>
 </body>
 </html>

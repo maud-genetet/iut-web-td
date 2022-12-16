@@ -30,6 +30,16 @@
             height: 40vh;
             max-width: 40vh;
         }
+        .navigation{
+            background-color: black;
+            border-radius: 90px;
+            padding: 8px;
+            color :white;
+            text-decoration: none;
+        }
+        .navigation:hover{
+            background-color: grey;
+        }
     </style>
 </head>
 <body><br>
@@ -72,30 +82,16 @@
     
     $requete = $pdo->query($sql2);
     $donnees = $requete->fetch();
-    if (isset($_GET['lettre']) && $_GET['lettre']=='') {
-        if ($pageEnCours>1){
-            echo "<a href='TD3.php?page=".($pageEnCours-1)."'>précédente</a>";
-            echo " ";
-        }
-        for ($i=1; $i < $donnees['nb']/$nbParPage+1; $i++) { 
-            echo "<a href='TD3.php?page=".$i."'>".$i."</a>";
-            echo " ";
-        }
-        if ($pageEnCours<($donnees['nb']/$nbParPage)){
-            echo "<a href='TD3.php?page=".($pageEnCours)."'>suivante</a>";
-        }
-    } else {
-        if ($pageEnCours>1){
-            echo "<a href='TD3.php?lettre=".$_GET['lettre']."page=".($pageEnCours-1)."'>précédente</a>";
-            echo " ";
-        }
-        for ($i=1; $i < $donnees['nb']/$nbParPage+1; $i++) { 
-            echo "<a href='TD3.php?lettre=".$_GET['lettre']."page=".$i."'>".$i."</a>";
-            echo " ";
-        }
-        if ($pageEnCours<($donnees['nb']/$nbParPage)){
-            echo "<a href='TD3.php?lettre=".$_GET['lettre']."page=".($pageEnCours)."'>suivante</a>";
-        }
+    if ($pageEnCours>1){
+        echo "<a class='navigation' href='TD3.php?page=".($pageEnCours-1)."'>précédente</a>";
+        echo " ";
+    }
+    for ($i=1; $i < $donnees['nb']/$nbParPage+1; $i++) { 
+        echo "<a class='navigation'  href='TD3.php?page=".$i."'>".$i."</a>";
+        echo " ";
+    }
+    if ($pageEnCours<($donnees['nb']/$nbParPage)){
+        echo "<a class='navigation'  href='TD3.php?page=".($pageEnCours+1)."'>suivante</a>";
     }
         
 ?>

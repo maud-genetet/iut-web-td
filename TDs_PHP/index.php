@@ -9,6 +9,8 @@
 
 </head>
 <body>
+    <?php
+    echo "Il est ".date('H:i:s');?>
     <h1>TD PHP</h1>
     <ul>
         <li><a href="/TD1.php">TD1: Les bases</a></li>

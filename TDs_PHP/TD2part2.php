@@ -13,42 +13,78 @@
 
     <h1>TD2: Les bases</h1>
     <br>
-    <h2>Calculatrice GET</h2>
+    <h2>Calendrier GET</h2>
 
-<?php
+<?php 
 
+$days = ['lun','mar','mer','jeu','ven','sam','dim'];
+$month = isset($_GET['month']) ? $_GET['month'] : date('n');
+$year = isset($_GET['year']) ? $_GET['year'] : date('Y');
+/*
+$month = date('n');
+$year = date('Y');
+*/
 
-$annee;
-if (isset($_GET['a'])){
-    $annee = $_GET['a'];
-} else {
-    $annee = 2022;
+$firstDay = mktime(12,0,0,$month,1,$year);
+$firstDayOfWeek = date('w',$firstDay) - 1;
+
+if ($firstDayOfWeek < 0) $firstDayOfWeek = 6;
+$day = 1 - $firstDayOfWeek;
+
+$precMonth = $month-1;
+$precYear = $year;
+if ( $precMonth == 0){
+    $precMonth = 12;
+    $precYear -= 1;
 }
 
+$nextMonth = $month+1;
+$nextYear = $year;
+if ( $nextMonth > 12){
+    $nextMonth = 1;
+    $nextYear += 1;
+}
+
+echo "<a href='?month=".$precMonth."&year=".$precYear."'>&larr;</a>";
+echo "<h1>".$year."/".$month."</h1>";
+echo "<a href='?month=".$nextMonth."&year=".$nextYear."'>&rarr;</a>";
 ?>
 
-    <table>
-        <thead>
-            <tr>
-                <td>
-                    <a href="TD2part2.php?m=-1"><</a> 
-                    Mois
-                    <a href="TD2part2.php?m=1">></a>
-                </td>
-                <td>
-                    <?php 
-                        echo "<a href='TD2part2.php?a=".($annee-1)."'><</a>";
-                        echo $annee;
-                        echo "<a href='TD2part2.php?a=".($annee+1)."'>></a>";
-                    ?>
-                    
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
+<table>
+    <tr>
+        <?php foreach ($days as $dayName){
+            echo "<th>".$dayName."</th>";
+        }
+        ?>
+    </tr>
+    <tr>
+        
+        <?php 
+            do {
+                echo "<tr>";
+                foreach ($days as $dayName){
+                    $curentDay = mktime(12,0,0,$month, $day, $year);
+                    $dayNumber = date('d', $curentDay);
+                    $day += 1;
+
+                    $style = "";
+                    if (date('m', $curentDay) != $month){
+                        $style = "style=color:grey";
+                    }
+                    if (date('m', $curentDay) == date('m') &&
+                        date('d', $curentDay) == date('d') &&
+                        date('Y', $curentDay) == date('Y')){
+                        $style = "style=color:red";
+                    }
+                    echo "<td ".$style.">".$dayNumber."</td>";
+                }
+                echo "</tr>";
+            } while ( $day > 0 && date('m', $curentDay)== $month);
+        ?>
+    </tr>
+
+</table>
+
 
 
 </body>
